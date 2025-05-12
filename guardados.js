@@ -1,6 +1,7 @@
 const seriesContainer = document.getElementById("seriesGuardadas");
 const botonOrdenarA = document.getElementById("botonOrdenarA");
 const botonOrdenarZ = document.getElementById("botonOrdenarZ");
+const botonBorrarTodo = document.getElementById("botonBorrarTodo");
 
 function cargarStorage() {
     seriesContainer.innerHTML = "";
@@ -8,13 +9,13 @@ function cargarStorage() {
     const seriesGuardadas = JSON.parse(localStorage.getItem("series")) || [];
 
     if (seriesGuardadas.length === 0) {
-        seriesContainer.innerHTML = "<p>No hay series guardadas!!!</p>";
+        seriesContainer.innerHTML = "<p id='sinSeriesGuardadas'>¡¡¡No hay series guardadas!!!</p>";
         return;
     }
 
     seriesGuardadas.forEach(data => {
         const serie = new Serie(data.id, data.url, data.name, data.language, data.genres || [], data.image);
-        seriesContainer.appendChild(serie.createHtmlElement()); // 🔹 ¡Reutilización del método!
+        seriesContainer.appendChild(serie.createHtmlElement(true));
     });
 }
 
@@ -34,9 +35,16 @@ function ordenarZA() {
     console.log("Ordenado de Z a A")
 }
 
+function borrarTodo() {
+    localStorage.removeItem("series");
+    alert("Todas las series han sido borradas.");
+    cargarStorage();
+}
+
+
 botonOrdenarA.addEventListener("click", ordenarAZ);
 botonOrdenarZ.addEventListener("click", ordenarZA);
-
+botonBorrarTodo.addEventListener("click", borrarTodo);
 
 
 cargarStorage();

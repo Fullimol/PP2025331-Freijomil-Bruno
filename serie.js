@@ -20,7 +20,7 @@ class Serie {
     }
 
     // Método de instancia: Genera un elemento HTML con los datos de la serie
-    createHtmlElement() {
+    createHtmlElement(guardado = false) {
         const container = document.createElement("div");
         container.classList.add("serie");
 
@@ -43,11 +43,13 @@ class Serie {
             window.open(this.url, "_blank");
         });
 
-        const saveButton = document.createElement("button");
-        saveButton.textContent = "Guardar";
-        saveButton.addEventListener("click", () => this.guardarSerie());
+        if (!guardado) {
+            const saveButton = document.createElement("button");
+            saveButton.textContent = "Guardar";
+            saveButton.addEventListener("click", () => this.guardarSerie());
+            container.appendChild(saveButton);
+        }
 
-        container.appendChild(saveButton);
         container.appendChild(title);
         container.appendChild(lang);
         container.appendChild(genres);
@@ -67,6 +69,7 @@ class Serie {
             image: this.image
         });
         localStorage.setItem("series", JSON.stringify(seriesGuardadas));
+        alert(`${this.name} guardada.`);
         console.log(`Serie "${this.id}" guardada.`);
     }
 }
