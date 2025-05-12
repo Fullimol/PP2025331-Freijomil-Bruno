@@ -1,0 +1,73 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 250px 1fr;
+    gap: 10px;
+    height: 100vh;
+}
+
+/* Header ocupa la primera fila */
+header {
+    grid-column: span 2;
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Nav ocupa la primera columna de la segunda fila */
+nav {
+    grid-row: 2;
+    grid-column: 1;
+    background-color: #ddd;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sección principal ocupa la segunda columna de la segunda fila */
+#principal {
+    grid-row: 2;
+    grid-column: 2;
+    padding: 20px;
+}
+
+/* Series en formato de grilla */
+#series, #seriesGuardadas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* Media query para menos de 900px: cambia a dos columnas */
+@media (max-width: 900px) {
+    #series, #seriesGuardadas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Media query para menos de 550px: cambia a una columna */
+@media (max-width: 550px) {
+    #series, #seriesGuardadas {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ajustar el grid para que nav y principal sean columnas en pantallas pequeñas */
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+    }
+
+    nav {
+        grid-column: span 1;
+    }
+
+    #principal {
+        grid-column: span 1;
+    }
+}
