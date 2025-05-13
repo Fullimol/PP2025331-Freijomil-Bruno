@@ -26,7 +26,7 @@ async function obtenerDatos() {
 
         console.log("Datos obtenidos exitosamente.");
 
-        //      (!)  VER POR QUE EN ALGUNAS PAGINAS TENGO EL ERROR "Error al obtener las series: TypeError: this.generes is undefined"
+
         const seriesObjects = response.map(data => new Serie(
             data.id,
             data.url,

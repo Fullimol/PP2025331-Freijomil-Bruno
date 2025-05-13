@@ -8,18 +8,18 @@ class Serie {
         this.image = image;
     }
 
-    // Método de instancia: Devuelve una representación JSON del objeto
+    // devuelvo una representación JSON del objeto
     toJsonString() {
         return JSON.stringify(this);
     }
 
-    // Método de clase: Crea una instancia a partir de un JSON string
+    // creo una instancia a partir de un JSON string
     static createFromJsonString(json) {
         const data = JSON.parse(json);
         return new Serie(data.id, data.url, data.name, data.language, data.generes, data.image);
     }
 
-    // Método de instancia: Genera un elemento HTML con los datos de la serie
+    // genero el elemento HTML con los datos de la serie
     createHtmlElement(guardado = false) {
         const container = document.createElement("div");
         container.classList.add("serie");
