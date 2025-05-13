@@ -5,7 +5,7 @@ const botonBorrarTodo = document.getElementById("botonBorrarTodo");
 
 function cargarStorage() {
     seriesContainer.innerHTML = "";
-    
+
     const seriesGuardadas = JSON.parse(localStorage.getItem("series")) || [];
 
     if (seriesGuardadas.length === 0) {

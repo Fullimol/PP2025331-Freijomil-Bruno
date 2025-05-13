@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: 1rem;
     font-family: Arial, sans-serif;
 }
 
@@ -27,6 +27,20 @@ nav {
     padding: 20px;
     display: flex;
     flex-direction: column;
+}
+
+nav a {
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: black;
+    padding: 1rem 0;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+nav a:hover {
+    color: red;
+    font-size: 1.6rem;
 }
 
 /* ocupa la segunda columna de la segunda fila */
@@ -60,16 +74,12 @@ button {
 
 button:hover {
     background-color: #0056b3;
-    /* Azul más oscuro al pasar el mouse */
     transform: scale(1.05);
-    /* Efecto ligero de aumento */
 }
 
 button:active {
     background-color: #004085;
-    /* Azul aún más oscuro cuando se presiona */
     transform: scale(0.95);
-    /* Disminución leve en tamaño */
 }
 
 
@@ -79,16 +89,16 @@ button:active {
     margin-top: 20px;
 }
 
-#botonBorrarTodo{
+#botonBorrarTodo {
     background-color: red;
     margin: 0.5rem;
 }
 
-.serie button{
+.serie button {
     background-color: green;
 }
 
-#sinSeriesGuardadas{
+#sinSeriesGuardadas {
     text-align: center;
     font-size: 2rem;
     color: red;
@@ -156,7 +166,7 @@ button:active {
         grid-template-columns: 1fr;
     }
 
-    /* Ajustar el grid para que nav y principal sean columnas en pantallas pequeñas */
+    /* ajusto el grid para que nav y principal sean columnas en pantallas pequeñas */
     main {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto 1fr;
